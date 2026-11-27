@@ -1,6 +1,6 @@
 # site-craft
 
-Скилл для Claude Code: как сделать стильный сайт или лендинг. Речь не о конкретном дизайне, а о порядке решений, который дал budka.app.
+Скилл для Claude Code и Codex: как сделать стильный сайт или лендинг. Речь не о конкретном дизайне, а о порядке решений, который дал budka.app.
 
 ## Порядок
 
@@ -18,9 +18,22 @@
 
 ## Установка
 
+Claude Code:
+
 ```text
 /plugin marketplace add kyzdes/claude-skills
 /plugin install site-craft@claude-skills
 ```
 
-Репозиторий приватный: ставится только владельцу.
+Codex (скиллы пользователя лежат в `~/.agents/skills`):
+
+```bash
+git clone --depth 1 https://github.com/kyzdes/site-craft-skill /tmp/site-craft-skill
+mkdir -p ~/.agents/skills && rm -rf ~/.agents/skills/site-craft
+cp -R /tmp/site-craft-skill/skills/site-craft ~/.agents/skills/
+rm -rf /tmp/site-craft-skill
+```
+
+Затем новый чат в Codex. Позвать скилл: «сделай сайт…» или `$site-craft`.
+
+Референсы с Mobbin скилл берёт через MCP-сервер `mobbin`. Без него попросит скриншоты или ссылки.
